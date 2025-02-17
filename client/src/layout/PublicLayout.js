@@ -7,7 +7,7 @@ import store from "@/redux/store";
 import { useRouter } from 'next/navigation';
 import Footer from "./Footer";
 import Header from "./Header";
-
+import { Toaster } from "@/components/ui/toaster"
 export default function PublicLayout({ children }) {
 
   return (
@@ -16,6 +16,7 @@ export default function PublicLayout({ children }) {
                             <Header/>
                             {children}
                             <Footer/>
+                            <Toaster  />
                 </div>
           </Provider>
   );

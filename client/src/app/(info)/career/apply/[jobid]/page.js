@@ -3,7 +3,9 @@ import React from 'react'
 
 const page = () => {
   return (
-    <MultiStepForm/>
+    <div className='w-full'>
+      <MultiStepForm/>
+    </div>
   )
 }
 

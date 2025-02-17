@@ -3,7 +3,9 @@ import React from 'react'
 
 const page = () => {
   return (
-    <JobDetailsPage/>
+   <div className='w-full'>
+     <JobDetailsPage/>
+   </div>
   )
 }
 
