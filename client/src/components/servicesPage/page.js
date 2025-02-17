@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -6,12 +7,9 @@ const services = [
   { id: 'mobile-development', name: 'Mobile Development', description: 'Creating Android & iOS apps' },
   { id: 'ui-ux', name: 'UI/UX Design', description: 'Designing user-friendly interfaces' },
 ];
-import PublicLayout from '@/layout/PublicLayout'
-import React from 'react'
 
-const page = () => {
+export default function ServicesPage() {
   return (
- 
     <div className="max-w-3xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Our Services</h1>
       <div className="grid gap-4">
@@ -29,8 +27,5 @@ const page = () => {
         ))}
       </div>
     </div>
-  )
+  );
 }
-
-export default page
-
