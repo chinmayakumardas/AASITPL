@@ -1,13 +1,118 @@
-import React, { useState } from "react";
+'use client'
+import { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
-
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import Link from "next/link";
+import * as React from "react"
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
+ 
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 export function NavbarDemo() {
+  const { setTheme } = useTheme()
   return (
-    <div className="w-full flex items-center justify-center px-10">
-      <div className="text-lg font-bold">AAS</div> {/* Left Company Name */}
-      <Navbar />
-      <div className="text-lg font-bold">Search</div> {/* Right Company Name */}
+    <div className="w-full border-2 gap-1 h-[100px] flex items-center justify-center px-10 shadow-md shadow-white/30">
+        <div className="text-lg font-bold">
+        <img src="/assets/aaslogo.png" alt="" srcset="" />
+        </div> {/* Left Company Name */}
+        <Navbar />
+    
+         <div className="flex items-center space-x-4">
+         <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => setTheme("light")}>
+                Light
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
+                Dark
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("system")}>
+                System
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <SearchIcon />
+          <Sheet>
+               <SheetTrigger><MenuIcon /></SheetTrigger>
+               <SheetContent>
+                  <SheetHeader>
+                    <SheetTitle></SheetTitle>
+                    <SheetDescription>
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger>Home</AccordionTrigger>
+                      <AccordionContent className="w-full flex flex-col">
+                        <Link href="/route1-1">Sub Item 1.1</Link>
+                        <Link href="/route1-2">Sub Item 1.2</Link>
+                        <Link href="/route1-3">Sub Item 1.3</Link>
+                        <Link href="/route1-4">Sub Item 1.4</Link>
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger>Services</AccordionTrigger>
+                      <AccordionContent className="w-full flex flex-col">
+                        <Link href="/home">Sub Item 2.1</Link>
+                        <Link href="/route2-2">Sub Item 2.2</Link>
+                        <Link href="/route2-3">Sub Item 2.3</Link>
+                        <Link href="/route2-4">Sub Item 2.4</Link>
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger>Insight's</AccordionTrigger>
+                      <AccordionContent className="w-full flex flex-col">
+                        <Link href="/route3-1">Sub Item 3.1</Link>
+                        <Link href="/route3-2">Sub Item 3.2</Link>
+                        <Link href="/route3-3">Sub Item 3.3</Link>
+                        <Link href="/route3-4">Sub Item 3.4</Link>
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-4">
+                      <AccordionTrigger >About us</AccordionTrigger>
+                      <AccordionContent className="w-full flex flex-col">
+                        <Link href="/route4-1">Sub Item 4.1</Link>
+                        <Link href="/route4-2">Sub Item 4.2</Link>
+                        <Link href="/route4-3">Sub Item 4.3</Link>
+                        <Link href="/route4-4">Sub Item 4.4</Link>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+
+                    </SheetDescription>
+                  </SheetHeader>
+                </SheetContent>
+          </Sheet>
+          
+        
+          </div> {/* Right Company Name */}
     </div>
   );
 }
@@ -25,16 +130,16 @@ function Navbar() {
             <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Products">
+        <MenuItem setActive={setActive} active={active} item="Insights">
           <div className="text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
-              title="Algochurn"
+              title="Blog"
               href="https://algochurn.com"
               src="https://assets.aceternity.com/demos/algochurn.webp"
               description="Prepare for tech interviews like never before."
             />
             <ProductItem
-              title="Tailwind Master Kit"
+              title="Case Stdies"
               href="https://tailwindmasterkit.com"
               src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
               description="Production ready Tailwind css components for your next project"
@@ -53,12 +158,13 @@ function Navbar() {
             />
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Pricing">
+        <MenuItem setActive={setActive} active={active} item="About us">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
+            <HoveredLink href="/overview">Overview</HoveredLink>
+            <HoveredLink href="/about-us">About us</HoveredLink>
             <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
+            <HoveredLink href="/career">Careers</HoveredLink>
+            <HoveredLink href="/contact">Connect with us</HoveredLink>
           </div>
         </MenuItem>
       </Menu>

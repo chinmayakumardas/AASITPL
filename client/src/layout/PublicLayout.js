@@ -11,13 +11,13 @@ import Header from "./Header";
 export default function PublicLayout({ children }) {
 
   return (
-            <div className=" ">
-                <Provider store={store}>
-                        <Header/>
-                        {children}
-                        <Footer/>
-                </Provider>
-            </div>
+          <Provider store={store}>
+                <div className="flex flex-col min-h-screen justify-between">
+                            <Header/>
+                            {children}
+                            <Footer/>
+                </div>
+          </Provider>
   );
 }
 
