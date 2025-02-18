@@ -36,7 +36,7 @@ export function NavbarDemo() {
   return (
     <div className="w-full border-2 gap-1 h-[70px] flex items-center justify-center px-10 shadow-md shadow-white/30">
         <div className="text-lg font-bold">
-           <Link href='/'> <img src="/assets/aaslogo.png" className="h-[50px]" alt="" srcset="" /></Link>
+           <Link href='/'> <img src="/assets/aaslogo.png" className="h-[50px]" alt=""  /></Link>
         </div> {/* Left Company Name */}
         <Navbar />
     

@@ -1,6 +1,6 @@
 
 
-import { ContactUsForm } from "../../../components/ContactUsForm"  // Import your form component
+import { ContactUsForm } from "../../../components/ui/ContactUsForm"  // Import your form component
 
 export default function ContactUsPage() {
   return (

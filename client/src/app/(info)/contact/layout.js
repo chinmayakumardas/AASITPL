@@ -1,10 +1,11 @@
+import PublicLayout from "@/layout/PublicLayout";
 
 export default function HomeLayout({ children }) {
   return (
-    <>
-      
-        {children}
-      
-    </>
+   <PublicLayout>
+         
+           {children}
+         
+       </PublicLayout>
   );
 }
