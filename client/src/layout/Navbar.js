@@ -34,7 +34,7 @@ export function NavbarDemo() {
   
   const {theme,setTheme } = useTheme()
   return (
-    <div className="w-full border-2 gap-1 h-[70px] flex items-center justify-center px-10 shadow-md shadow-white/30">
+    <div className="w-full border-2 gap-1 h-[70px] flex items-center justify-between px-10 shadow-md shadow-white/30 ">
         <div className="text-lg font-bold">
            <Link href='/'> <img src="/assets/aaslogo.png" className="h-[50px]" alt=""  /></Link>
         </div> {/* Left Company Name */}
@@ -120,7 +120,7 @@ export function NavbarDemo() {
 function Navbar() {
   const [active, setActive] = useState(null);
   return (
-    <div className={cn("flex-grow max-w-2xl mx-auto z-50")}>
+    <div className={cn("flex-grow max-w-2xl mx-auto z-50 hidden md-block")}>
       <Menu setActive={setActive}  >
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">

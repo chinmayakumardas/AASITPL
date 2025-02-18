@@ -117,7 +117,7 @@ export default function ServiceSection() {
 
   return (
 
-    <HeroHighlight className=' '>
+    <HeroHighlight className='h-full py-2'>
   <motion.div
     className=" inset-0 z-0  to-red-500 opacity-30"
     initial={{
@@ -133,7 +133,7 @@ export default function ServiceSection() {
       ease: [0.4, 0.0, 0.2, 1],
     }}
   >
-    <div className="max-w-7xl h-full mx-auto p-0  flex flex-col items-center gap-0 ">
+    <div className="max-w-7xl h-full mx-auto p-2  flex flex-col items-center gap-0 ">
       {/* Section Title */}
       <motion.h1
         initial={{

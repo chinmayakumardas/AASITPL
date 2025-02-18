@@ -36,7 +36,7 @@ const blogs = [
 const FeaturedBlogs = () => {
   const router=useRouter()
   return (
-   <div className="max-w-8xl mx-auto p-8 flex flex-col items-center">
+   <div className="max-w-8xl mx-auto p-8 flex flex-col items-center bg-[#F1F4F7] w-full">
    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-4xl">
         Recent Blog's
       </h1>
@@ -56,7 +56,7 @@ const FeaturedBlogs = () => {
               <h2 className="text-xl font-bold mt-2">{blog.title}</h2>
               <p className="text-sm text-gray-400 mt-1">{blog.category}</p>
               <p className="text-gray-600 mt-2">
-                {blog.description.length > 100 ? `${blog.description.slice(0, 100)}...` : blog.description}
+                {blog.description.length > 80 ? `${blog.description.slice(0, 80)}...` : blog.description}
               </p>
 
             </div>
