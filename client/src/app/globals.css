@@ -80,3 +80,28 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post-card {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.post-card-detail {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+button {
+  margin-top: 10px;
+}

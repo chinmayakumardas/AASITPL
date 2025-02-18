@@ -38,7 +38,7 @@ export function NavbarDemo() {
         <div className="text-lg font-bold">
            <Link href='/'> <img src="/assets/aaslogo.png" className="h-[50px]" alt=""  /></Link>
         </div> {/* Left Company Name */}
-        <Navbar />
+        <Navbar  />
     
          <div className="flex items-center space-x-4">
          
@@ -121,7 +121,7 @@ function Navbar() {
   const [active, setActive] = useState(null);
   return (
     <div className={cn("flex-grow max-w-2xl mx-auto z-50")}>
-      <Menu setActive={setActive}>
+      <Menu setActive={setActive}  >
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
@@ -164,6 +164,7 @@ function Navbar() {
             <HoveredLink href="/about-us">About us</HoveredLink>
             <HoveredLink href="/team">Team</HoveredLink>
             <HoveredLink href="/career">Careers</HoveredLink>
+            <HoveredLink href="/blog">Blog</HoveredLink>
             <HoveredLink href="/contact">Connect with us</HoveredLink>
           </div>
         </MenuItem>

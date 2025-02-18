@@ -9,11 +9,21 @@ import {
 
 export default function HeroSection() {
   const images = [
-    "/assets/imgslide1.jpg",
-    "/assets/imgslide2.webp",
-    "/assets/imgslide3.jpeg",
-    "/assets/imgslide4.webp",
-    "/assets/imgslide5.jpeg",
+    {
+      src: "/assets/banner1.jpg",
+      heading: "Innovation in Tech",
+      description: "Explore the cutting-edge technologies that are transforming the industry.",
+    },
+    {
+      src: "/assets/banner2.avif",
+      heading: "The Future is Now",
+      description: "Embrace the future with advanced digital solutions for your business.",
+    },
+    {
+      src: "/assets/banner3.avif",
+      heading: "Empowering Digital Solutions",
+      description: "Transform your operations with tailored digital solutions that drive growth.",
+    },
   ];
 
   return (
@@ -26,8 +36,22 @@ export default function HeroSection() {
       <CarouselContent className="h-full">
         {images.map((image, index) => (
           <CarouselItem key={index} className="h-full">
-            <div className="h-full w-full flex items-center justify-center">
-              <img src={image} alt={`Carousel Image ${index + 1}`} className="h-full w-full object-cover" />
+            <div className="h-[30vh] md:h-[80vh] w-full flex items-center justify-start relative">
+              <img
+                src={image.src}
+                alt={`Carousel Image ${index + 1}`}
+                className="h-full w-full object-cover object-top"
+              />
+              <div className="absolute top-[60%] left-4 p-4   ">
+                {/* Heading */}
+                <h1 className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg">
+                  {image.heading}
+                </h1>
+                {/* Description */}
+                <p className="text-white text-lg md:text-2xl font-normal drop-shadow-lg mt-2">
+                  {image.description}
+                </p>
+              </div>
             </div>
           </CarouselItem>
         ))}

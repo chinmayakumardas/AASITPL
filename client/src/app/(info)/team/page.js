@@ -102,16 +102,6 @@ export default function AboutUsPage() {
         </Grid>
       </Section>
 
-      {/* Locations Section */}
-      <Section>
-        <Typography variant="h3" className="text-center mb-6">
-          Our Locations
-        </Typography>
-        <Typography>
-          We have offices in multiple locations to serve our clients better. Our main offices are located in New York, San Francisco, and London.
-        </Typography>
-      </Section>
-
       {/* Core Values */}
       <Section>
         <Typography variant="h3" className="text-center mb-6">
@@ -216,11 +206,11 @@ export default function AboutUsPage() {
         </Grid>
       </Section>
 
-      {/* Connect With Us Button */}
+      {/* Contact Button */}
       <Section>
         <div className="flex justify-center">
           <Button variant="primary" onClick={() => window.location.href = '/contact'}>
-            Connect With Us
+            Get in Touch
           </Button>
         </div>
       </Section>
