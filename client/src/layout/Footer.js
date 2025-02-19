@@ -5,30 +5,23 @@ import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-2 py-8 min-h-[50vh] flex justify-around">
+    <footer className="border-2 py-8 min-h-[50vh] flex flex-col justify-center">
       <div className="container mx-auto px-4 flex flex-col justify-around">
         {/* Row 1: Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           {/* Column 1: Address and Contact Details */}
-          <div className="flex flex-col">
-            <h2 className="text-xl font-bold">AAS Information Technology</h2>
-            <p className="mt-2 ">
+          <div className="flex flex-col gap-2">
+            <h2 className="text-xs sm:text-xl font-bold">AAS Information Technology</h2>
+            <p className="mt-2 text-sm">
               <strong>CORPORATE OFFICE</strong>
               <br />
               Plot No. 52, Bapuji Nagar, Unit-1 Main Street, <br />
               Forest Park, Bhubaneswar, Khordha, Odisha, India 751009
             </p>
-            <p className="mt-2">
-              <strong>Contact Us:</strong>
-              <br />
-              Email: info@aasit.com
-              <br />
-              Mobile: +91 12345 67890
-            </p>
+
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.0575992117087!2d85.82251607469429!3d20.25644581385726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a70011040d15%3A0xe41a86c1b6d241fd!2sAAS%20International%20Private%20limited!5e0!3m2!1sen!2sin!4v1739928219180!5m2!1sen!2sin" 
-                width="300" 
-                height="200" 
+                className="w-full h-48 rounded-md" 
                 style={{ border: 0 }} 
                 allowFullScreen 
                 loading="lazy" 
@@ -41,7 +34,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="mt-2 space-y-2">
               <li>
-                <Link href="/about" className="hover:text-gray-300">
+                <Link href="/about-us" className="hover:text-gray-300">
                   About Us
                 </Link>
               </li>
@@ -92,11 +85,7 @@ export default function Footer() {
                   Consulting
                 </Link>
               </li>
-              <li>
-                <Link href="/support" className="hover:text-gray-300">
-                  Support
-                </Link>
-              </li>
+              
             </ul>
           </div>
 
@@ -121,9 +110,9 @@ export default function Footer() {
         </div>
 
         {/* Row 2: Copyright */}
-        <div className="border-t border-gray-700 mt-6 py-4 text-center text-sm flex justify-between">
+        <div className="border-t border-gray-700 mt-6 py-4 text-center text-sm flex flex-col md:flex-row justify-between">
           <div>Copyright© {new Date().getFullYear()} AAS Information Technology.</div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 mt-2 ">
             <a href="/privacy-policy" className="hover:underline">Privacy Policy</a> | 
             <a href="/cookies" className="hover:underline">Cookies</a> | 
             <a href="/terms-of-service" className="hover:underline">Terms of Service</a>

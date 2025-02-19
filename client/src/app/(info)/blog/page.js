@@ -51,7 +51,7 @@ const BlogPage = () => {
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => (
             <div key={post.id} shadow="md" className="p-5 gap-2 flex flex-col cursor-pointer" onClick={() => handlePostClick(post)}>
-              <img src={post.imageUrl} alt={post.title} className="w-50 h-50 rounded-3xl object-cover" />
+              <img src={post.imageUrl} alt={post.title} className="w-50 h-60 rounded-3xl object-cover" />
               <p className="text-xl   cursor-pointer">{post.publishedAt}</p>
               <p className="text-xl font-bold hover:underline cursor-pointer">{post.title}</p>
               <p className="cursor-pointer hover:underline">{post.excerpt}</p>

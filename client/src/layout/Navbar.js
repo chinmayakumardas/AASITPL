@@ -214,6 +214,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"; // Adjust path
 import { ListItem } from "@mui/material";
+import  Insights  from "@/layout/header/Insights";
 const components = [
   { title: 'Alert Dialog', href: '/docs/primitives/alert-dialog', description: 'A modal dialog that interrupts the user with important content and expects a response.' },
   { title: 'Hover Card', href: '/docs/primitives/hover-card', description: 'For sighted users to preview content available behind a link.' },
@@ -317,10 +318,10 @@ export function NavbarDemo() {
        <NavigationMenuList className="relative flex jsutify-center items-center">
        
          {/* Static More section 1 */}
-         <NavigationMenuItem className="group ">
+         <NavigationMenuItem className="group hidden lg:block">
            <NavigationMenuTrigger className="">Insights</NavigationMenuTrigger>
-           <NavigationMenuContent className=" transition-all duration-300 group-hover:w-[100vw]">
-             <ul className="grid  p-4  lg:grid-cols-[.75fr_1fr] w-[100vw]">
+           <NavigationMenuContent className=" transition-all duration-300 group-hover:w-[100vw] ">
+             {/* <ul className="grid  p-4  lg:grid-cols-[.75fr_1fr] w-[100vw]">
               
                {components.map((component) => (
                  <ListItem
@@ -331,16 +332,22 @@ export function NavbarDemo() {
                    {component.description}
                  </ListItem>
                ))}
+             </ul> */}
+             <ul className="grid  p-4  lg:grid-cols-[.75fr_1fr] w-[100vw]  mt-10">
+                <ListItem className="grid  p-4  lg:grid-cols-[.75fr_1fr] w-[100vw]">
+                  <Insights/>
+                  
+                </ListItem>
              </ul>
            </NavigationMenuContent>
          </NavigationMenuItem>
          {/* Static Getting Started Section 2 */}
-         <NavigationMenuItem className="group ">
+         <NavigationMenuItem className="group hidden lg:block">
            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
            <NavigationMenuContent className="transition-all duration-300 group-hover:w-[100vw]">
            <ul className="grid gap-3 p-4 lg:grid-cols-[.75fr_1fr] w-[100vw]">
                {[
-                 { label: 'About', route: 'about' },
+                 { label: 'Services', route: 'services' },
                  { label: 'Login', route: 'auth' },
                  { label: 'Contact Us', route: 'contact' }
                ].map((component, index) => (
@@ -358,20 +365,22 @@ export function NavbarDemo() {
            </NavigationMenuContent>
          </NavigationMenuItem>
         
-         {/* Static Getting Started Section 6 */}
-         <NavigationMenuItem className="group ">
+         {/* Static Getting Started Section 3 */}
+         <NavigationMenuItem className="group hidden lg:block">
            <NavigationMenuTrigger>More</NavigationMenuTrigger>
            <NavigationMenuContent className="transition-all duration-300 group-hover:w-[100vw]">
            <ul className="grid gap-3 p-4 lg:grid-cols-[.75fr_1fr] w-[100vw]">
                {[
-                 { label: 'Career', route: 'career' },
-                 { label: 'Contact Us', route: 'contact' },
-                 { label: 'SiteMap', route: 'sitemap' },
-                 { label: 'Login', route: 'auth' },
+                 { label: 'About us', route: '/about-us' },
+                 { label: 'Contact Us', route: '/contact' },
+                 { label: 'Career', route: '/career' },
+                 { label: 'Team', route: '/team' },
+                 
+                 {/* { label: 'Login', route: 'auth' }, */}
                ].map((component, index) => (
                  <li key={index}>
                    <Link
-                     href={`/${component.route}`} // Use the route value for the URL
+                     href={`${component.route}`} // Use the route value for the URL
                      className="text-blue-600 hover:text-blue-800 cursor-pointer"
                    >
                      {component.label} {/* Use the label value for display text */}
@@ -406,58 +415,62 @@ export function NavbarDemo() {
                </DropdownMenu>
      
                <SearchIcon className="h-[1.2rem] w-[1.2rem] transition-all  mt-3 cursor-pointer" />
-                   <Sheet className="">
-             <SheetTrigger className="block lg:hidden">
-               <MenuIcon className="h-[4rem] w-[4rem] transition-all" />
-             </SheetTrigger>
-             <SheetContent>
-               <SheetHeader>
-                 <SheetTitle></SheetTitle>
-                 <SheetDescription>
-                   <Accordion type="single" collapsible className="w-full">
-                     <AccordionItem value="item-1">
-                       <AccordionTrigger className="p-4 transition-colors duration-300 hover:bg-gray-200">Home</AccordionTrigger>
-                       <AccordionContent className="w-full flex flex-col">
-                         <Link href="/route1-1" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 1.1</Link>
-                         <Link href="/route1-2" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 1.2</Link>
-                         <Link href="/route1-3" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 1.3</Link>
-                         <Link href="/route1-4" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 1.4</Link>
-                       </AccordionContent>
-                     </AccordionItem>
-                     <AccordionItem value="item-2">
-                       <AccordionTrigger className="p-4 transition-colors duration-300 hover:bg-gray-200">Services</AccordionTrigger>
-                       <AccordionContent className="w-full flex flex-col">
-                         <Link href="/home" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 2.1</Link>
-                         <Link href="/route2-2" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 2.2</Link>
-                         <Link href="/route2-3" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 2.3</Link>
-                         <Link href="/route2-4" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 2.4</Link>
-                       </AccordionContent>
-                     </AccordionItem>
-                     <AccordionItem value="item-3">
-                       <AccordionTrigger className="p-4 transition-colors duration-300 hover:bg-gray-200">Insight's</AccordionTrigger>
-                       <AccordionContent className="w-full flex flex-col">
-                         <Link href="/case-studies" className="p-4 transition-colors duration-300 hover:bg-gray-100">Case studies</Link>
-                         <Link href="/route3-2" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 3.2</Link>
-                         <Link href="/route3-3" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 3.3</Link>
-                         <Link href="/route3-4" className="p-4 transition-colors duration-300 hover:bg-gray-100">Sub Item 3.4</Link>
-                       </AccordionContent>
-                     </AccordionItem>
-                     <AccordionItem value="item-4">
-                       <AccordionTrigger className="p-4 transition-colors duration-300 hover:bg-gray-200">About us</AccordionTrigger>
-                       <AccordionContent className="w-full flex flex-col">
-                         <Link href="/route4-1" className="p-4 transition-colors duration-300 hover:bg-gray-100">Overview</Link>
-                         <Link href="/route4-2" className="p-4 transition-colors duration-300 hover:bg-gray-100">About us</Link>
-                         <Link href="/route4-3" className="p-4 transition-colors duration-300 hover:bg-gray-100">Connect with us</Link>
-                         <Link href="/route4-4" className="p-4 transition-colors duration-300 hover:bg-gray-100">Career</Link>
-                         <Link href="/route4-4" className="p-4 transition-colors duration-300 hover:bg-gray-100">Team</Link>
-     
-                       </AccordionContent>
-                     </AccordionItem>
-                   </Accordion>
-                 </SheetDescription>
-               </SheetHeader>
-             </SheetContent>
-           </Sheet>
+              <Sheet className="">
+                  <SheetTrigger className="block lg:hidden">
+                    <MenuIcon className="h-[4rem] w-[4rem] transition-all" />
+                  </SheetTrigger>
+                  <SheetContent>
+                    <SheetHeader>
+                      <SheetTitle></SheetTitle>
+                      <SheetDescription className='py-3'>
+                        <Accordion type="single" collapsible className="w-full">
+                        
+                        
+                      
+                        
+                      <AccordionItem value="item-1">
+                        <AccordionTrigger className="p-4 transition-colors duration-300 text-[1.5rem]" >Home</AccordionTrigger>
+                        <AccordionContent className="w-full flex flex-col text-[1rem]">
+                          <Link href="/route4-1" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">About US</Link>
+                          <Link href="/route4-1" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Team</Link>
+                          <Link href="/route4-1" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Blog</Link>
+                          <Link href="/route4-1" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Connect with us</Link>
+                        </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-2">
+                        <AccordionTrigger className="p-4 transition-colors duration-300 text-[1.5rem]">Services</AccordionTrigger>
+                        <AccordionContent className="w-full flex flex-col text-[1rem]">
+                          <Link href="/services" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">About US</Link>
+                          <Link href="/services" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Team</Link>
+                          <Link href="/services" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Blog</Link>
+                          <Link href="/services" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Connect with us</Link>
+                        </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-3">
+                        <AccordionTrigger className="p-4 transition-colors duration-300 text-[1.5rem]">Insights</AccordionTrigger>
+                        <AccordionContent className="w-full flex flex-col text-[1rem]">
+                          <Link href="/case-studies" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">About US</Link>
+                          <Link href="/mission" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Team</Link>
+                          <Link href="/route4-1" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Blog</Link>
+                          <Link href="/route4-1" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Connect with us</Link>
+                        </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-4">
+                        <AccordionTrigger className="p-4 transition-colors duration-300 text-[1.5rem]">About us</AccordionTrigger>
+                        <AccordionContent className="w-full flex flex-col text-[1rem]">
+                          <Link href="/about-us" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">About US</Link>
+                          <Link href="/team" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Team</Link>
+                          <Link href="/blog" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Blog</Link>
+                          <Link href="/contact" className="p-4 border-l-4 border-transparent hover:border-l-[#000] dark:hover:border-l-[#fff] transition-colors duration-300 text-left">Connect with us</Link>
+                        </AccordionContent>
+                      </AccordionItem>
+                        
+                      
+                        </Accordion>
+                      </SheetDescription>
+                    </SheetHeader>
+                  </SheetContent>
+              </Sheet>
                </div> {/* Right Company Name */}
   
   

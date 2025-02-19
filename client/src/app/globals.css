@@ -104,10 +104,11 @@
 
 .post-card-detail {
   padding: 20px;
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 0 auto;
 }
 
 button {
   margin-top: 10px;
 }
+
