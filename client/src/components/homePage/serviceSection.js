@@ -71,7 +71,7 @@ import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { HeroHighlight } from "../ui/hero-highlight";
-
+import { ButtonsCard } from "../ui/tailwindcss-buttons";
 // Project data
 export const projects = [
   {
@@ -148,7 +148,7 @@ export default function ServiceSection() {
           duration: 0.5,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-4xl z-10"
+        className="scroll-m-20 text-4xl font-extrabold  tracking-tight lg:text-4xl z-10"
       >
         Our Services
       </motion.h1>
@@ -159,13 +159,16 @@ export default function ServiceSection() {
 
         {/* Related Services Button */}
         <span className="flex justify-center w-full">
-          <Button
+          {/* <Button
             variant="more"
             className="rounded-3xl"
             onClick={() => router.push('/services')}
           >
             Related Services
-          </Button>
+          </Button> */}
+          <button onClick={() => router.push('/services')} className="shadow-[inset_0_0_0_2px_#616467] text-black px-12 py-4 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">
+          Related Services
+      </button>
         </span>
       </div>
     </div>

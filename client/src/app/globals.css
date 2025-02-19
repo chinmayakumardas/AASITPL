@@ -95,6 +95,12 @@
   padding: 20px;
   cursor: pointer;
 }
+.dropdown-menu {
+  position: fixed;
+  left: 0;
+  top: 50px; /* Adjust based on your design */
+  z-index: 1000;
+}
 
 .post-card-detail {
   padding: 20px;

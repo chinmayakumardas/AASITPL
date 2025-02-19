@@ -219,7 +219,7 @@ export function ContactUsForm({ className, ...props }) {
   const { loading, error } = useSelector((state) => state.contact);
 
   return (
-    <div className={cn("flex flex-col gap-6 h-full", className)} {...props}>
+    <div className={cn("flex flex-col gap-6 min-h-[100vh]", className)} {...props}>
       <CardHeader className="text-left">
         <CardTitle className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
           Connect with us
@@ -275,55 +275,30 @@ export function ContactUsForm({ className, ...props }) {
 
             {/* Reason Dropdown */}
             <div className="grid gap-2">
-              {/* <Select
+              <Select
                 name="contactType"
                 value={formData.contactType}
-                onChange={handleChange}  // handleChange will update state for contactType
+                onValueChange={(value) => handleChange({ target: { name: 'contactType', value } })}  // Correct way to update formData
               >
                 <SelectTrigger>
                   <SelectValue placeholder="What can we help you with?" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="collaboration">Collaboration</SelectItem>
-                  <SelectItem value="career">Career</SelectItem>
-                  <SelectItem value="data & privacy">Data and Privacy Request</SelectItem>
-                  <SelectItem value="services">Services</SelectItem>
-                  <SelectItem value="media inquiries">Media Inquiries</SelectItem>
-                  <SelectItem value="sponsorship">Sponsorship</SelectItem>
-                  <SelectItem value="feedback">Website Feedback</SelectItem>
-                  <SelectItem value="partners">Alliance & Partners</SelectItem>
-                  <SelectItem value="none">None of the Above</SelectItem>
+                <SelectContent className="absolute z-10">
+                  <SelectGroup >
+                    <SelectLabel>What can we help you with?</SelectLabel>
+                    <SelectItem value="collaboration">Collaboration</SelectItem>
+                    <SelectItem value="career">Career</SelectItem>
+                    <SelectItem value="data & privacy">Data and Privacy Request</SelectItem>
+                    <SelectItem value="services">Services</SelectItem>
+                    <SelectItem value="media inquiries">Media Inquiries</SelectItem>
+                    <SelectItem value="sponsorship">Sponsorship</SelectItem>
+                    <SelectItem value="feedback">Website Feedback</SelectItem>
+                    <SelectItem value="partners">Alliance & Partners</SelectItem>
+                    <SelectItem value="none">None of the Above</SelectItem>
+                  </SelectGroup>
                 </SelectContent>
-              </Select> */}
-              
-
-
+              </Select>
             </div>
-            <div className="grid gap-2">
-  <Select
-    name="contactType"
-    value={formData.contactType}
-    onValueChange={(value) => handleChange({ target: { name: 'contactType', value } })}  // Correct way to update formData
-  >
-    <SelectTrigger>
-      <SelectValue placeholder="What can we help you with?" />
-    </SelectTrigger>
-    <SelectContent>
-      <SelectGroup>
-        <SelectLabel>What can we help you with?</SelectLabel>
-        <SelectItem value="collaboration">Collaboration</SelectItem>
-        <SelectItem value="career">Career</SelectItem>
-        <SelectItem value="data & privacy">Data and Privacy Request</SelectItem>
-        <SelectItem value="services">Services</SelectItem>
-        <SelectItem value="media inquiries">Media Inquiries</SelectItem>
-        <SelectItem value="sponsorship">Sponsorship</SelectItem>
-        <SelectItem value="feedback">Website Feedback</SelectItem>
-        <SelectItem value="partners">Alliance & Partners</SelectItem>
-        <SelectItem value="none">None of the Above</SelectItem>
-      </SelectGroup>
-    </SelectContent>
-  </Select>
-</div>
 
             {/* Message Field */}
             <div className="grid gap-2">
